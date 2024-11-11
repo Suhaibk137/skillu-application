@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill U - International Diploma in Hospital Administration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+        .success-message {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            z-index: 1000;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .header-gradient {
+            background: linear-gradient(to right, #2563eb, #1d4ed8);
+        }
+
+        .required-field::after {
+            content: "*";
+            color: #ef4444;
+            margin-left: 4px;
+        }
+
+        .custom-file-input::-webkit-file-upload-button {
+            visibility: hidden;
+            width: 0;
+        }
+        .custom-file-input::before {
+            content: 'Select file';
+            display: inline-block;
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            border-radius: 3px;
+            padding: 5px 8px;
+            outline: none;
+            white-space: nowrap;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .custom-file-input:hover::before {
+            background: #e5e7eb;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Success Message -->
+    <div id="successMessage" class="success-message">
+        Registration submitted successfully!
+    </div>
+
+    <div class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto">
+            <!-- Header Section -->
+            <div class="text-center mb-8">
+                <div class="mb-6 flex justify-center">
+                    <img src="Skill U BLUE (1).png" alt="Skill U Logo" class="h-24 object-contain"/>
+                </div>
+            </div>
+
+            <!-- Main Form Card -->
+            <div class="bg-white shadow-xl rounded-lg overflow-hidden">
+                <!-- Form Header -->
+                <div class="header-gradient px-6 py-4">
+                    <h2 class="text-2xl font-bold text-white text-center">International Diploma in Hospital Administration</h2>
+                    <p class="mt-1 text-white text-center opacity-90">Registration Form</p>
+                </div>
+
+                <!-- Form -->
+                <form id="registrationForm" class="px-6 py-8 space-y-8">
+                    <!-- Personal Information -->
+                    <div class="space-y-6">
+                        <div class="border-b border-gray-200 pb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-6">Personal Information</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 required-field">Full Name</label>
+                                    <input type="text" name="Full_Name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 required-field">Email Address</label>
+                                    <input type="email" name="Email" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 required-field">Contact Number</label>
+                                    <input type="tel" name="Phone" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 required-field">Date of Birth</label>
+                                    <input type="date" name="DOB" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-sm font-medium text-gray-700 required-field">Current Address</label>
+                                    <textarea name="Address" required rows="3" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 required-field">Guardian Name</label>
+                                    <input type="text" name="Guardian_Name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Educational Information -->
+                        <div class="border-b border-gray-200 pb-4">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-6">Educational Information</h3>
+                            <div class="space-y-4">
+                                <label class="block text-sm font-medium text-gray-700 required-field">Select All Applicable Qualifications</label>
+                                <div class="space-y-3">
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="edu_10th" name="Education" value="10th" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                        <label for="edu_10th" class="ml-3 text-sm text-gray-700">10th</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="edu_12th" name="Education" value="12th" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                        <label for="edu_12th" class="ml-3 text-sm text-gray-700">12th</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="edu_ug" name="Education" value="Undergraduate" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                        <label for="edu_ug" class="ml-3 text-sm text-gray-700">Undergraduate</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="edu_pg" name="Education" value="Postgraduate" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                        <label for="edu_pg" class="ml-3 text-sm text-gray-700">Postgraduate</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="edu_other" name="Education" value="Other" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                        <label for="edu_other" class="ml-3 text-sm text-gray-700">Other</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ID Proof -->
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-6">ID Proof</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 required-field">ID Type</label>
+                                    <select name="ID_Type" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                        <option value="">Select ID Type</option>
+                                        <option value="Aadhar">Aadhar Card</option>
+                                        <option value="Voter">Voter ID</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 required-field">Upload ID Proof (PDF/JPG/PNG)</label>
+                                    <input type="file" name="ID_Proof" required accept=".pdf,.jpg,.jpeg,.png" class="mt-1 block w-full custom-file-input">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="pt-6">
+                        <button type="submit" id="submitButton" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out">
+                            Submit Registration
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Footer -->
+            <div class="mt-8 text-center text-sm text-gray-600">
+                © 2024 Skill U. All rights reserved.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzgAaOUVOo36cipY5Nj4Km7nU5J0tTF3vXBOU0vD8lglAFA-jAYXZ8Ir2uaV1Da9ZJB/exec';
+        
+        const form = document.getElementById('registrationForm');
+        const successMessage = document.getElementById('successMessage');
+        const submitButton = document.getElementById('submitButton');
+    
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Validate education checkboxes
+            const educationCheckboxes = document.querySelectorAll('input[name="Education"]:checked');
+            if (educationCheckboxes.length === 0) {
+                alert('Please select at least one qualification');
+                return;
+            }
+    
+            // Show loading state
+            submitButton.disabled = true;
+            submitButton.innerHTML = 'Submitting...';
+    
+            try {
+                // Get file input
+                const fileInput = document.querySelector('input[name="ID_Proof"]');
+                const file = fileInput.files[0];
+                
+                // Create form data
+                const formData = new FormData();
+                
+                // Add regular form fields
+                formData.append('Full_Name', form.querySelector('[name="Full_Name"]').value);
+                formData.append('Email', form.querySelector('[name="Email"]').value);
+                formData.append('Phone', form.querySelector('[name="Phone"]').value);
+                formData.append('DOB', form.querySelector('[name="DOB"]').value);
+                formData.append('Address', form.querySelector('[name="Address"]').value);
+                formData.append('Guardian_Name', form.querySelector('[name="Guardian_Name"]').value);
+                formData.append('ID_Type', form.querySelector('[name="ID_Type"]').value);
+                
+                // Add education values
+                const educationValues = Array.from(educationCheckboxes).map(cb => cb.value).join(', ');
+                formData.append('Education', educationValues);
+    
+                // Handle file
+                if (file) {
+                    return new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onload = async function(e) {
+                            try {
+                                // Get base64 data
+                                const base64Data = e.target.result.split(',')[1];
+                                
+                                // Add file data
+                                formData.append('ID_Proof_Base64', base64Data);
+                                formData.append('ID_Proof_Type', file.type);
+                                formData.append('ID_Proof_Name', file.name);
+                                
+                                // Submit form
+                                await submitFormData(formData);
+                                resolve();
+                            } catch (error) {
+                                reject(error);
+                            }
+                        };
+                        reader.onerror = reject;
+                        reader.readAsDataURL(file);
+                    });
+                } else {
+                    await submitFormData(formData);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+                resetSubmitButton();
+            }
+        });
+    
+        async function submitFormData(formData) {
+            try {
+                // Convert FormData to URL encoded string
+                const data = Array.from(formData.entries()).map(
+                    e => encodeURIComponent(e[0]) + '=' + encodeURIComponent(e[1])
+                ).join('&');
+    
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    mode: 'no-cors',
+                    body: data
+                });
+    
+                // Show success message
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 3000);
+                
+                // Reset form
+                form.reset();
+                
+            } catch (error) {
+                throw error;
+            } finally {
+                resetSubmitButton();
+            }
+        }
+    
+        function resetSubmitButton() {
+            submitButton.disabled = false;
+            submitButton.innerHTML = 'Submit Registration';
+        }
+    </script>
+</body>
+</html>
